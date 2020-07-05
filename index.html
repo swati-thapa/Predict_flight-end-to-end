@@ -1,0 +1,101 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+</head>
+<body> 
+    <h3>Air ticket predictions</h3>
+  
+<div> 
+  <form action="/predict" method="POST">
+    <label for="Additional Info">Additional Info</label>
+    <select id="Additional Info" name="Additional_Info">
+      <option value="0">1 Long layover</option> 
+      <option value="1">1 Short layover</option> 
+      <option value="2">2 Long layover</option> 
+      <option value="3">Business class</option> 
+      <option value="4">Change airports</option> 
+      <option value="5">In-flight meal not included</option> 
+      <option value="6">No Info</option> 
+      <option value="7">No check-in baggage included</option> 
+      <option value="8">No info</option> 
+      <option value="9">Red-eye flight</option> 
+    </select> 
+    <br>
+    <label for="Airline">Airline</label>
+    <select id="Airline" name="Airline">
+      <option value="0">Air-Asia</option> 
+      <option value="1">Air India</option> 
+      <option value="2">GoAir</option> 
+      <option value="3">IndiGo</option> 
+      <option value="4">Jet Airways</option> 
+      <option value="5">Jet Airways Business</option> 
+      <option value="6">Multiple carriers</option> 
+      <option value="7">Multiple carriers Premium economy</option> 
+      <option value="8">SpiceJet</option> 
+      <option value="9">Trujet</option> 
+      <option value="10">Vistara</option> 
+      <option value="11">Vistara Premium economy</option> 
+    </select> 
+    <br> 
+    <label for="From">From</label>
+    <select id="From" name="From">
+      <option value="0">Banglore</option> 
+      <option value="1">Chennai</option> 
+      <option value="2">Delhi</option> 
+      <option value="3">Kolkata</option> 
+      <option value="4">Mumbai</option>  
+    </select> 
+    <br>
+    <label for="To">To</label>
+    <select id="To" name="To">
+      <option value="0">Banglore</option> 
+      <option value="1">Cochin</option> 
+      <option value="2">Delhi</option> 
+      <option value="3">Hyderabad</option> 
+      <option value="4">Kolkata</option>  
+      <option value="5">New Delhi</option>  
+    </select> 
+    <br>
+    <label for="Departure Flag">Departure Flag</label>(Peak if fight time is between 6am and 11am or if between 5pm and 9pm)<br>
+    <select id="Departure Flag" name="Departure Flag">
+      <option value="0">Non Peak</option> 
+      <option value="1">Peak</option> 
+    </select> 
+    <br>
+    <label for="Weekday">Weekday</label>
+    <select id="Weekday" name="Weekday">
+      <option value="0">Monday</option>
+      <option value="1">Tuesday</option>
+      <option value="2">Wednesday</option>
+      <option value="3">Thursday</option>
+      <option value="4">Friday</option>
+      <option value="5">Saturday</option>
+      <option value="6">Sunday</option>
+    </select>
+    <br>
+    <br> 
+    <label for="Total Stops">Total Stops </label>
+    <input type="text" id="Total Stops" name="Total Stops">
+    <br>
+    <label for="Total Duration">Total Duration </label>
+    <input type="text" id="Total Duration" name="Total Duration">
+    <br>
+
+    <input type="submit" value="Submit">
+      <br>
+
+     <br>
+   {{ prediction_price }}
+
+  </form> 
+</div> 
+</body> 
+</html> 
